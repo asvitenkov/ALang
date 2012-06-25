@@ -2,6 +2,7 @@ global:
 	a,b,c,d;
 
 
+
 coroutine first{
 	while(a>b){
 		yield second;
@@ -30,10 +31,15 @@ main{
 	c = "string";
 	
 	@first;
+	@first;
 	e=a+b;
 	if(a>b){
 		a=2.0;
 		loc = -15;
+		if(a>b){
+			if(c<d){
+			}
+		}
 	}
 	else{
 		b=3;

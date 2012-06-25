@@ -38,6 +38,11 @@ public class ALang {
 		ALangParser parser = new ALangParser(tokenStream);
 		
 		RuleReturnScope r = parser.program();
+		if(parser.haveErrors()){
+			ArrayList<String> eList = parser.getErrors();
+			for(String tmp: eList)
+			System.err.println(tmp);
+		}
 		CommonTree tree = (CommonTree) r.getTree();
 		System.out.println(tree.toStringTree());
 		ArrayList<String> tmp = new ArrayList<String>();

@@ -15,7 +15,7 @@ public class NamesTable {
 	public class VariableName {
 		private String 	idtf;
 		private String	type;
-		private int		lineDeclaration;
+		private int	lineDeclaration;
 		private ArrayList<Integer> linesUses = new ArrayList<Integer>();
 		
 		public VariableName(String idtf, String type, int line) {
@@ -32,6 +32,9 @@ public class NamesTable {
 		}
 		public String getType() {
 			return type;
+		}
+		public void setType(String type){
+			this.type = type;
 		}
 		
 	}
@@ -52,39 +55,34 @@ public class NamesTable {
 				+ ((linesUses.isEmpty())? "not uses" : linesUses);
 		}
 	}
-	private HashMap<String, Coroutine> functionNames = new HashMap<String, Coroutine>();
+	private HashMap<String, Coroutine> coroutinenNames = new HashMap<String, Coroutine>();
 	private HashMap<String, VariableName> variableNames = new HashMap<String, VariableName>();
 	private Stack<String> errors = new Stack<String>();
-	public String getLAstError(){
+	public String getLastError(){
 		if(!errors.isEmpty())
 			return errors.pop();
 		else return "";
 	}
-	public boolean isExistVariable(String name) {
-		//System.out.println(name);
-		boolean rv = variableNames.containsKey(name);
-		if (! rv && name.indexOf('.')!=-1) {
-			rv = variableNames.containsKey("global"+name.substring(name.indexOf('.')));
-			if(!rv){
-				// search variable name in functions names
-				//System.out.println(name.substring(name.indexOf('.')+1).toString());
-				rv = variableNames.containsKey(name.substring(name.indexOf('.')+1));
-			}
+	
+	public void addCoroutine(Coroutine c){
+		System.out.println(c);
+		coroutinenNames.put(c.idtf, c);
+	}
+	
+	public boolean isExistCoroutine(String name){
+		return coroutinenNames.containsKey(name);
+	}
+	
+	public boolean isExistVariable(String block, String varName){
+		boolean rv=variableNames.containsKey(block+"."+varName);
+		if (! rv ){
+			rv = variableNames.containsKey("global"+"."+varName);
 		}
 		return rv;
 	}
 	
-	public boolean isDeclaredVariable(String name){
-		boolean result = false;
-		result = variableNames.containsKey(name);
-//		if(result==false){
-//			result = variableNames.containsKey("global"+name.substring(name.indexOf('.')));
-//		}
-		return result;
-	}
-	
 	public void addVariable(VariableName n) {
-		//System.out.println("Declaration var : "+n.idtf+" line " + n.lineDeclaration);
+		System.out.println(n);
 		variableNames.put(n.idtf, n);
 	}
 	
@@ -92,16 +90,22 @@ public class NamesTable {
 		System.out.println(variableNames);
 	}
 	
-	public VariableName getVariable(String n) {
-		//System.out.println(n);
-		VariableName _n = variableNames.get(n); 
+	public VariableName getVariable(String block, String name) {
+		VariableName _n = variableNames.get(block+"."+name); 
 		if (_n == null) {
-			if (n.indexOf('.')==-1)
-				_n = variableNames.get("global."+n);
-			else 
-				_n = variableNames.get("global"+n.substring(n.indexOf('.')));
+
+				_n = variableNames.get("global."+name);
 		}
 		return _n;
+	}
+	
+	
+	public String getVariableType(String block, String name){
+		String type="undef";
+		if(isExistVariable(block, name)){
+			type = getVariable(block, name).getType();
+		}
+		return type;
 	}
 	
 	public void printVariable(PrintStream out) {
