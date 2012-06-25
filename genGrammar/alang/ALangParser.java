@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g 2012-06-25 07:47:14
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g 2012-06-25 19:11:44
 
 
 package alang;  
@@ -155,6 +155,7 @@ public class ALangParser extends Parser {
             EOF4_tree = (Object)adaptor.create(EOF4);
             adaptor.addChild(root_0, EOF4_tree);
 
+            names.printVars();
 
             }
 
@@ -208,17 +209,17 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal5=(Token)match(input,12,FOLLOW_12_in_globalVariableDeclaration103); 
+            string_literal5=(Token)match(input,12,FOLLOW_12_in_globalVariableDeclaration105); 
             string_literal5_tree = (Object)adaptor.create(string_literal5);
             adaptor.addChild(root_0, string_literal5_tree);
 
-            pushFollow(FOLLOW_variableDeclarationList_in_globalVariableDeclaration105);
+            pushFollow(FOLLOW_variableDeclarationList_in_globalVariableDeclaration107);
             variableDeclarationList6=variableDeclarationList();
 
             state._fsp--;
 
             adaptor.addChild(root_0, variableDeclarationList6.getTree());
-            char_literal7=(Token)match(input,13,FOLLOW_13_in_globalVariableDeclaration107); 
+            char_literal7=(Token)match(input,13,FOLLOW_13_in_globalVariableDeclaration109); 
             char_literal7_tree = (Object)adaptor.create(char_literal7);
             adaptor.addChild(root_0, char_literal7_tree);
 
@@ -285,7 +286,7 @@ public class ALangParser extends Parser {
             	case 1 :
             	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:61:7: coroutineDeclarator
             	    {
-            	    pushFollow(FOLLOW_coroutineDeclarator_in_coroutineDeclaration124);
+            	    pushFollow(FOLLOW_coroutineDeclarator_in_coroutineDeclaration126);
             	    coroutineDeclarator8=coroutineDeclarator();
 
             	    state._fsp--;
@@ -352,16 +353,16 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal9=(Token)match(input,14,FOLLOW_14_in_coroutineDeclarator148); 
+            string_literal9=(Token)match(input,14,FOLLOW_14_in_coroutineDeclarator150); 
             string_literal9_tree = (Object)adaptor.create(string_literal9);
             adaptor.addChild(root_0, string_literal9_tree);
 
-            ID10=(Token)match(input,ID,FOLLOW_ID_in_coroutineDeclarator151); 
+            ID10=(Token)match(input,ID,FOLLOW_ID_in_coroutineDeclarator153); 
             ID10_tree = (Object)adaptor.create(ID10);
             adaptor.addChild(root_0, ID10_tree);
 
             this.currentBlock="coroutine_"+(ID10!=null?ID10.getText():null); blocks.add(currentBlock);
-            char_literal11=(Token)match(input,15,FOLLOW_15_in_coroutineDeclarator156); 
+            char_literal11=(Token)match(input,15,FOLLOW_15_in_coroutineDeclarator158); 
             char_literal11_tree = (Object)adaptor.create(char_literal11);
             adaptor.addChild(root_0, char_literal11_tree);
 
@@ -380,7 +381,7 @@ public class ALangParser extends Parser {
             	case 1 :
             	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:70:98: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_coroutineDeclarator158);
+            	    pushFollow(FOLLOW_statement_in_coroutineDeclarator160);
             	    statement12=statement();
 
             	    state._fsp--;
@@ -395,7 +396,7 @@ public class ALangParser extends Parser {
                 }
             } while (true);
 
-            char_literal13=(Token)match(input,16,FOLLOW_16_in_coroutineDeclarator161); 
+            char_literal13=(Token)match(input,16,FOLLOW_16_in_coroutineDeclarator163); 
             char_literal13_tree = (Object)adaptor.create(char_literal13);
             adaptor.addChild(root_0, char_literal13_tree);
 
@@ -465,11 +466,11 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal14=(Token)match(input,17,FOLLOW_17_in_main196); 
+            string_literal14=(Token)match(input,17,FOLLOW_17_in_main198); 
             string_literal14_tree = (Object)adaptor.create(string_literal14);
             adaptor.addChild(root_0, string_literal14_tree);
 
-            char_literal15=(Token)match(input,15,FOLLOW_15_in_main198); 
+            char_literal15=(Token)match(input,15,FOLLOW_15_in_main200); 
             char_literal15_tree = (Object)adaptor.create(char_literal15);
             adaptor.addChild(root_0, char_literal15_tree);
 
@@ -488,7 +489,7 @@ public class ALangParser extends Parser {
             	case 1 :
             	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:90:18: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_main200);
+            	    pushFollow(FOLLOW_statement_in_main202);
             	    statement16=statement();
 
             	    state._fsp--;
@@ -503,7 +504,7 @@ public class ALangParser extends Parser {
                 }
             } while (true);
 
-            char_literal17=(Token)match(input,16,FOLLOW_16_in_main203); 
+            char_literal17=(Token)match(input,16,FOLLOW_16_in_main205); 
             char_literal17_tree = (Object)adaptor.create(char_literal17);
             adaptor.addChild(root_0, char_literal17_tree);
 
@@ -605,13 +606,13 @@ public class ALangParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_assign_op_in_statement221);
+                    pushFollow(FOLLOW_assign_op_in_statement223);
                     assign_op18=assign_op();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, assign_op18.getTree());
-                    char_literal19=(Token)match(input,13,FOLLOW_13_in_statement223); 
+                    char_literal19=(Token)match(input,13,FOLLOW_13_in_statement225); 
                     char_literal19_tree = (Object)adaptor.create(char_literal19);
                     adaptor.addChild(root_0, char_literal19_tree);
 
@@ -623,13 +624,13 @@ public class ALangParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_yield_op_in_statement231);
+                    pushFollow(FOLLOW_yield_op_in_statement233);
                     yield_op20=yield_op();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, yield_op20.getTree());
-                    char_literal21=(Token)match(input,13,FOLLOW_13_in_statement233); 
+                    char_literal21=(Token)match(input,13,FOLLOW_13_in_statement235); 
                     char_literal21_tree = (Object)adaptor.create(char_literal21);
                     adaptor.addChild(root_0, char_literal21_tree);
 
@@ -641,13 +642,13 @@ public class ALangParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_call_coroutine_in_statement241);
+                    pushFollow(FOLLOW_call_coroutine_in_statement243);
                     call_coroutine22=call_coroutine();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, call_coroutine22.getTree());
-                    char_literal23=(Token)match(input,13,FOLLOW_13_in_statement243); 
+                    char_literal23=(Token)match(input,13,FOLLOW_13_in_statement245); 
                     char_literal23_tree = (Object)adaptor.create(char_literal23);
                     adaptor.addChild(root_0, char_literal23_tree);
 
@@ -659,7 +660,7 @@ public class ALangParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_if_statement_in_statement251);
+                    pushFollow(FOLLOW_if_statement_in_statement253);
                     if_statement24=if_statement();
 
                     state._fsp--;
@@ -673,7 +674,7 @@ public class ALangParser extends Parser {
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_while_statement_in_statement260);
+                    pushFollow(FOLLOW_while_statement_in_statement262);
                     while_statement25=while_statement();
 
                     state._fsp--;
@@ -750,25 +751,25 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal26=(Token)match(input,18,FOLLOW_18_in_if_statement286); 
+            string_literal26=(Token)match(input,18,FOLLOW_18_in_if_statement288); 
             string_literal26_tree = (Object)adaptor.create(string_literal26);
             adaptor.addChild(root_0, string_literal26_tree);
 
-            char_literal27=(Token)match(input,19,FOLLOW_19_in_if_statement288); 
+            char_literal27=(Token)match(input,19,FOLLOW_19_in_if_statement290); 
             char_literal27_tree = (Object)adaptor.create(char_literal27);
             adaptor.addChild(root_0, char_literal27_tree);
 
-            pushFollow(FOLLOW_logical_expression_in_if_statement289);
+            pushFollow(FOLLOW_logical_expression_in_if_statement291);
             logical_expression28=logical_expression();
 
             state._fsp--;
 
             adaptor.addChild(root_0, logical_expression28.getTree());
-            char_literal29=(Token)match(input,20,FOLLOW_20_in_if_statement290); 
+            char_literal29=(Token)match(input,20,FOLLOW_20_in_if_statement292); 
             char_literal29_tree = (Object)adaptor.create(char_literal29);
             adaptor.addChild(root_0, char_literal29_tree);
 
-            char_literal30=(Token)match(input,15,FOLLOW_15_in_if_statement292); 
+            char_literal30=(Token)match(input,15,FOLLOW_15_in_if_statement294); 
             char_literal30_tree = (Object)adaptor.create(char_literal30);
             adaptor.addChild(root_0, char_literal30_tree);
 
@@ -787,7 +788,7 @@ public class ALangParser extends Parser {
             	case 1 :
             	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:112:41: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_if_statement294);
+            	    pushFollow(FOLLOW_statement_in_if_statement296);
             	    statement31=statement();
 
             	    state._fsp--;
@@ -802,7 +803,7 @@ public class ALangParser extends Parser {
                 }
             } while (true);
 
-            char_literal32=(Token)match(input,16,FOLLOW_16_in_if_statement297); 
+            char_literal32=(Token)match(input,16,FOLLOW_16_in_if_statement299); 
             char_literal32_tree = (Object)adaptor.create(char_literal32);
             adaptor.addChild(root_0, char_literal32_tree);
 
@@ -817,11 +818,11 @@ public class ALangParser extends Parser {
                 case 1 :
                     // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:112:57: 'else' '{' ( statement )* '}'
                     {
-                    string_literal33=(Token)match(input,21,FOLLOW_21_in_if_statement300); 
+                    string_literal33=(Token)match(input,21,FOLLOW_21_in_if_statement302); 
                     string_literal33_tree = (Object)adaptor.create(string_literal33);
                     adaptor.addChild(root_0, string_literal33_tree);
 
-                    char_literal34=(Token)match(input,15,FOLLOW_15_in_if_statement302); 
+                    char_literal34=(Token)match(input,15,FOLLOW_15_in_if_statement304); 
                     char_literal34_tree = (Object)adaptor.create(char_literal34);
                     adaptor.addChild(root_0, char_literal34_tree);
 
@@ -840,7 +841,7 @@ public class ALangParser extends Parser {
                     	case 1 :
                     	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:112:68: statement
                     	    {
-                    	    pushFollow(FOLLOW_statement_in_if_statement304);
+                    	    pushFollow(FOLLOW_statement_in_if_statement306);
                     	    statement35=statement();
 
                     	    state._fsp--;
@@ -855,7 +856,7 @@ public class ALangParser extends Parser {
                         }
                     } while (true);
 
-                    char_literal36=(Token)match(input,16,FOLLOW_16_in_if_statement307); 
+                    char_literal36=(Token)match(input,16,FOLLOW_16_in_if_statement309); 
                     char_literal36_tree = (Object)adaptor.create(char_literal36);
                     adaptor.addChild(root_0, char_literal36_tree);
 
@@ -930,25 +931,25 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal37=(Token)match(input,22,FOLLOW_22_in_while_statement334); 
+            string_literal37=(Token)match(input,22,FOLLOW_22_in_while_statement336); 
             string_literal37_tree = (Object)adaptor.create(string_literal37);
             adaptor.addChild(root_0, string_literal37_tree);
 
-            char_literal38=(Token)match(input,19,FOLLOW_19_in_while_statement336); 
+            char_literal38=(Token)match(input,19,FOLLOW_19_in_while_statement338); 
             char_literal38_tree = (Object)adaptor.create(char_literal38);
             adaptor.addChild(root_0, char_literal38_tree);
 
-            pushFollow(FOLLOW_logical_expression_in_while_statement337);
+            pushFollow(FOLLOW_logical_expression_in_while_statement339);
             logical_expression39=logical_expression();
 
             state._fsp--;
 
             adaptor.addChild(root_0, logical_expression39.getTree());
-            char_literal40=(Token)match(input,20,FOLLOW_20_in_while_statement338); 
+            char_literal40=(Token)match(input,20,FOLLOW_20_in_while_statement340); 
             char_literal40_tree = (Object)adaptor.create(char_literal40);
             adaptor.addChild(root_0, char_literal40_tree);
 
-            char_literal41=(Token)match(input,15,FOLLOW_15_in_while_statement340); 
+            char_literal41=(Token)match(input,15,FOLLOW_15_in_while_statement342); 
             char_literal41_tree = (Object)adaptor.create(char_literal41);
             adaptor.addChild(root_0, char_literal41_tree);
 
@@ -967,7 +968,7 @@ public class ALangParser extends Parser {
             	case 1 :
             	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:125:44: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_while_statement342);
+            	    pushFollow(FOLLOW_statement_in_while_statement344);
             	    statement42=statement();
 
             	    state._fsp--;
@@ -982,7 +983,7 @@ public class ALangParser extends Parser {
                 }
             } while (true);
 
-            char_literal43=(Token)match(input,16,FOLLOW_16_in_while_statement345); 
+            char_literal43=(Token)match(input,16,FOLLOW_16_in_while_statement347); 
             char_literal43_tree = (Object)adaptor.create(char_literal43);
             adaptor.addChild(root_0, char_literal43_tree);
 
@@ -1036,11 +1037,11 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            char_literal44=(Token)match(input,23,FOLLOW_23_in_call_coroutine362); 
+            char_literal44=(Token)match(input,23,FOLLOW_23_in_call_coroutine364); 
             char_literal44_tree = (Object)adaptor.create(char_literal44);
             adaptor.addChild(root_0, char_literal44_tree);
 
-            ID45=(Token)match(input,ID,FOLLOW_ID_in_call_coroutine364); 
+            ID45=(Token)match(input,ID,FOLLOW_ID_in_call_coroutine366); 
             ID45_tree = (Object)adaptor.create(ID45);
             adaptor.addChild(root_0, ID45_tree);
 
@@ -1097,15 +1098,15 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            ID46=(Token)match(input,ID,FOLLOW_ID_in_logical_expression390); 
+            ID46=(Token)match(input,ID,FOLLOW_ID_in_logical_expression392); 
             ID46_tree = (Object)adaptor.create(ID46);
             adaptor.addChild(root_0, ID46_tree);
 
-            RELATIONALOP47=(Token)match(input,RELATIONALOP,FOLLOW_RELATIONALOP_in_logical_expression392); 
+            RELATIONALOP47=(Token)match(input,RELATIONALOP,FOLLOW_RELATIONALOP_in_logical_expression394); 
             RELATIONALOP47_tree = (Object)adaptor.create(RELATIONALOP47);
             adaptor.addChild(root_0, RELATIONALOP47_tree);
 
-            ID48=(Token)match(input,ID,FOLLOW_ID_in_logical_expression394); 
+            ID48=(Token)match(input,ID,FOLLOW_ID_in_logical_expression396); 
             ID48_tree = (Object)adaptor.create(ID48);
             adaptor.addChild(root_0, ID48_tree);
 
@@ -1155,11 +1156,11 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            string_literal49=(Token)match(input,24,FOLLOW_24_in_yield_op413); 
+            string_literal49=(Token)match(input,24,FOLLOW_24_in_yield_op415); 
             string_literal49_tree = (Object)adaptor.create(string_literal49);
             adaptor.addChild(root_0, string_literal49_tree);
 
-            ID50=(Token)match(input,ID,FOLLOW_ID_in_yield_op415); 
+            ID50=(Token)match(input,ID,FOLLOW_ID_in_yield_op417); 
             ID50_tree = (Object)adaptor.create(ID50);
             adaptor.addChild(root_0, ID50_tree);
 
@@ -1211,20 +1212,37 @@ public class ALangParser extends Parser {
             {
             root_0 = (Object)adaptor.nil();
 
-            ID51=(Token)match(input,ID,FOLLOW_ID_in_assign_op433); 
+            ID51=(Token)match(input,ID,FOLLOW_ID_in_assign_op435); 
             ID51_tree = (Object)adaptor.create(ID51);
             adaptor.addChild(root_0, ID51_tree);
 
-            char_literal52=(Token)match(input,25,FOLLOW_25_in_assign_op435); 
+            char_literal52=(Token)match(input,25,FOLLOW_25_in_assign_op437); 
             char_literal52_tree = (Object)adaptor.create(char_literal52);
             adaptor.addChild(root_0, char_literal52_tree);
 
-            pushFollow(FOLLOW_expression_in_assign_op437);
+            pushFollow(FOLLOW_expression_in_assign_op439);
             expression53=expression();
 
             state._fsp--;
 
             adaptor.addChild(root_0, expression53.getTree());
+
+                      String varBlock=this.currentBlock;
+                      if(names.isExistVariable(blocks,(ID51!=null?ID51.getText():null))){
+                        varBlock = names.getVariableBlock(blocks,(ID51!=null?ID51.getText():null));
+                      }
+                      else{
+                        names.addVariable(names.new VariableName(this.currentBlock+"."+(ID51!=null?ID51.getText():null),"undef",(ID51!=null?ID51.getLine():0)));
+                        varBlock=this.currentBlock;
+                      }
+                      if(!names.checkAssignOperation(varBlock,(ID51!=null?ID51.getText():null), (expression53!=null?expression53.type:null), (ID51!=null?ID51.getLine():0))){
+                         errors.add(names.getLastError());
+                      }
+                      else{
+                         //typeChecker.getResultType("+",names.getVariableType(varBlock,(ID51!=null?ID51.getText():null),(expression53!=null?expression53.type:null)));
+                      }
+                      
+                  
 
             }
 
@@ -1258,7 +1276,7 @@ public class ALangParser extends Parser {
     };
 
     // $ANTLR start "expression"
-    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:151:1: expression returns [String type] : a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )* ;
+    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:168:1: expression returns [String type] : a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )* ;
     public final ALangParser.expression_return expression() throws RecognitionException {
         expression_stack.push(new expression_scope());
         ALangParser.expression_return retval = new ALangParser.expression_return();
@@ -1278,12 +1296,12 @@ public class ALangParser extends Parser {
           ((expression_scope)expression_stack.peek()).lastType ="";
 
         try {
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:161:5: (a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )* )
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:161:7: a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:178:5: (a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )* )
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:178:7: a= mult_expr ( (c= '+' | c= '-' ) b= mult_expr )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_mult_expr_in_expression474);
+            pushFollow(FOLLOW_mult_expr_in_expression484);
             a=mult_expr();
 
             state._fsp--;
@@ -1292,7 +1310,7 @@ public class ALangParser extends Parser {
 
                           ((expression_scope)expression_stack.peek()).lastType = (a!=null?a.type:null);
                       
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:165:5: ( (c= '+' | c= '-' ) b= mult_expr )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:182:5: ( (c= '+' | c= '-' ) b= mult_expr )*
             loop11:
             do {
                 int alt11=2;
@@ -1305,9 +1323,9 @@ public class ALangParser extends Parser {
 
                 switch (alt11) {
             	case 1 :
-            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:165:6: (c= '+' | c= '-' ) b= mult_expr
+            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:182:6: (c= '+' | c= '-' ) b= mult_expr
             	    {
-            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:165:6: (c= '+' | c= '-' )
+            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:182:6: (c= '+' | c= '-' )
             	    int alt10=2;
             	    int LA10_0 = input.LA(1);
 
@@ -1325,9 +1343,9 @@ public class ALangParser extends Parser {
             	    }
             	    switch (alt10) {
             	        case 1 :
-            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:165:7: c= '+'
+            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:182:7: c= '+'
             	            {
-            	            c=(Token)match(input,26,FOLLOW_26_in_expression498); 
+            	            c=(Token)match(input,26,FOLLOW_26_in_expression508); 
             	            c_tree = (Object)adaptor.create(c);
             	            adaptor.addChild(root_0, c_tree);
 
@@ -1335,9 +1353,9 @@ public class ALangParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:165:13: c= '-'
+            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:182:13: c= '-'
             	            {
-            	            c=(Token)match(input,27,FOLLOW_27_in_expression502); 
+            	            c=(Token)match(input,27,FOLLOW_27_in_expression512); 
             	            c_tree = (Object)adaptor.create(c);
             	            adaptor.addChild(root_0, c_tree);
 
@@ -1347,7 +1365,7 @@ public class ALangParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_mult_expr_in_expression507);
+            	    pushFollow(FOLLOW_mult_expr_in_expression517);
             	    b=mult_expr();
 
             	    state._fsp--;
@@ -1356,7 +1374,7 @@ public class ALangParser extends Parser {
 
             	                   if(!typeChecker.checkMathExpr(((expression_scope)expression_stack.peek()).lastType, (b!=null?b.type:null))){
             	                      ((expression_scope)expression_stack.peek()).lastType ="error";
-            	                      errors.add("line "+(b!=null?b.line:0)+": coroutine "+(b!=null?input.toString(b.start,b.stop):null)+" doesn't exists");
+            	                      errors.add("line "+(b!=null?b.line:0)+": type mismatch");
             	                   }
             	                   else{
             	                      ((expression_scope)expression_stack.peek()).lastType =typeChecker.getResultType((c!=null?c.getText():null),(b!=null?b.type:null), ((expression_scope)expression_stack.peek()).lastType);
@@ -1409,7 +1427,7 @@ public class ALangParser extends Parser {
     };
 
     // $ANTLR start "mult_expr"
-    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:178:1: mult_expr returns [String type, int line] : a= atom ( (c= '*' | c= '/' ) b= atom )* ;
+    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:195:1: mult_expr returns [String type, int line] : a= atom ( (c= '*' | c= '/' ) b= atom )* ;
     public final ALangParser.mult_expr_return mult_expr() throws RecognitionException {
         mult_expr_stack.push(new mult_expr_scope());
         ALangParser.mult_expr_return retval = new ALangParser.mult_expr_return();
@@ -1429,12 +1447,12 @@ public class ALangParser extends Parser {
           ((mult_expr_scope)mult_expr_stack.peek()).lastType ="";
 
         try {
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:189:5: (a= atom ( (c= '*' | c= '/' ) b= atom )* )
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:189:7: a= atom ( (c= '*' | c= '/' ) b= atom )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:206:5: (a= atom ( (c= '*' | c= '/' ) b= atom )* )
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:206:7: a= atom ( (c= '*' | c= '/' ) b= atom )*
             {
             root_0 = (Object)adaptor.nil();
 
-            pushFollow(FOLLOW_atom_in_mult_expr562);
+            pushFollow(FOLLOW_atom_in_mult_expr572);
             a=atom();
 
             state._fsp--;
@@ -1443,7 +1461,7 @@ public class ALangParser extends Parser {
 
                   ((mult_expr_scope)mult_expr_stack.peek()).lastType = (a!=null?a.type:null);
                 
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:193:5: ( (c= '*' | c= '/' ) b= atom )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:210:5: ( (c= '*' | c= '/' ) b= atom )*
             loop13:
             do {
                 int alt13=2;
@@ -1456,9 +1474,9 @@ public class ALangParser extends Parser {
 
                 switch (alt13) {
             	case 1 :
-            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:193:6: (c= '*' | c= '/' ) b= atom
+            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:210:6: (c= '*' | c= '/' ) b= atom
             	    {
-            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:193:6: (c= '*' | c= '/' )
+            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:210:6: (c= '*' | c= '/' )
             	    int alt12=2;
             	    int LA12_0 = input.LA(1);
 
@@ -1476,9 +1494,9 @@ public class ALangParser extends Parser {
             	    }
             	    switch (alt12) {
             	        case 1 :
-            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:193:7: c= '*'
+            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:210:7: c= '*'
             	            {
-            	            c=(Token)match(input,28,FOLLOW_28_in_mult_expr579); 
+            	            c=(Token)match(input,28,FOLLOW_28_in_mult_expr589); 
             	            c_tree = (Object)adaptor.create(c);
             	            adaptor.addChild(root_0, c_tree);
 
@@ -1486,9 +1504,9 @@ public class ALangParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:193:13: c= '/'
+            	            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:210:13: c= '/'
             	            {
-            	            c=(Token)match(input,29,FOLLOW_29_in_mult_expr583); 
+            	            c=(Token)match(input,29,FOLLOW_29_in_mult_expr593); 
             	            c_tree = (Object)adaptor.create(c);
             	            adaptor.addChild(root_0, c_tree);
 
@@ -1498,7 +1516,7 @@ public class ALangParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_atom_in_mult_expr588);
+            	    pushFollow(FOLLOW_atom_in_mult_expr598);
             	    b=atom();
 
             	    state._fsp--;
@@ -1507,7 +1525,7 @@ public class ALangParser extends Parser {
 
             	                   if(!typeChecker.checkMathExpr(((mult_expr_scope)mult_expr_stack.peek()).lastType, (b!=null?b.type:null))){
             	                      ((mult_expr_scope)mult_expr_stack.peek()).lastType ="error";
-            	                      errors.add("line "+(b!=null?b.line:0)+": coroutine "+(b!=null?input.toString(b.start,b.stop):null)+" doesn't exists");
+            	                      errors.add("line "+(b!=null?b.line:0)+": type mismatch");
             	                   }
             	                   else{
             	                      ((mult_expr_scope)mult_expr_stack.peek()).lastType =typeChecker.getResultType((c!=null?c.getText():null),(b!=null?b.type:null), ((mult_expr_scope)mult_expr_stack.peek()).lastType);
@@ -1556,7 +1574,7 @@ public class ALangParser extends Parser {
     };
 
     // $ANTLR start "atom"
-    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:206:1: atom returns [String type, int line] : ( ID | STRING | signed_atom );
+    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:223:1: atom returns [String type, int line] : ( ID | STRING | signed_atom );
     public final ALangParser.atom_return atom() throws RecognitionException {
         ALangParser.atom_return retval = new ALangParser.atom_return();
         retval.start = input.LT(1);
@@ -1572,7 +1590,7 @@ public class ALangParser extends Parser {
         Object STRING55_tree=null;
 
         try {
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:207:5: ( ID | STRING | signed_atom )
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:224:5: ( ID | STRING | signed_atom )
             int alt14=3;
             switch ( input.LA(1) ) {
             case ID:
@@ -1602,25 +1620,25 @@ public class ALangParser extends Parser {
 
             switch (alt14) {
                 case 1 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:207:7: ID
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:224:7: ID
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    ID54=(Token)match(input,ID,FOLLOW_ID_in_atom628); 
+                    ID54=(Token)match(input,ID,FOLLOW_ID_in_atom638); 
                     ID54_tree = (Object)adaptor.create(ID54);
                     adaptor.addChild(root_0, ID54_tree);
 
-                    retval.type = names.getVariableType(this.currentBlock,(ID54!=null?ID54.getText():null));
+                    retval.type = names.getVariableType(names.getVariableBlock(blocks,(ID54!=null?ID54.getText():null)),(ID54!=null?ID54.getText():null));
                     retval.line = (ID54!=null?ID54.getLine():0);
 
                     }
                     break;
                 case 2 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:208:7: STRING
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:225:7: STRING
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    STRING55=(Token)match(input,STRING,FOLLOW_STRING_in_atom640); 
+                    STRING55=(Token)match(input,STRING,FOLLOW_STRING_in_atom650); 
                     STRING55_tree = (Object)adaptor.create(STRING55);
                     adaptor.addChild(root_0, STRING55_tree);
 
@@ -1630,11 +1648,11 @@ public class ALangParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:209:7: signed_atom
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:226:7: signed_atom
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_signed_atom_in_atom654);
+                    pushFollow(FOLLOW_signed_atom_in_atom664);
                     signed_atom56=signed_atom();
 
                     state._fsp--;
@@ -1673,7 +1691,7 @@ public class ALangParser extends Parser {
     };
 
     // $ANTLR start "signed_atom"
-    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:212:1: signed_atom returns [String type, int line] : ( INT | FLOAT | ( '-' | '+' ) a= signed_atom );
+    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:229:1: signed_atom returns [String type, int line] : ( INT | FLOAT | ( '-' | '+' ) a= signed_atom );
     public final ALangParser.signed_atom_return signed_atom() throws RecognitionException {
         ALangParser.signed_atom_return retval = new ALangParser.signed_atom_return();
         retval.start = input.LT(1);
@@ -1691,7 +1709,7 @@ public class ALangParser extends Parser {
         Object set59_tree=null;
 
         try {
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:213:5: ( INT | FLOAT | ( '-' | '+' ) a= signed_atom )
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:230:5: ( INT | FLOAT | ( '-' | '+' ) a= signed_atom )
             int alt15=3;
             switch ( input.LA(1) ) {
             case INT:
@@ -1719,11 +1737,11 @@ public class ALangParser extends Parser {
 
             switch (alt15) {
                 case 1 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:213:7: INT
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:230:7: INT
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    INT57=(Token)match(input,INT,FOLLOW_INT_in_signed_atom684); 
+                    INT57=(Token)match(input,INT,FOLLOW_INT_in_signed_atom694); 
                     INT57_tree = (Object)adaptor.create(INT57);
                     adaptor.addChild(root_0, INT57_tree);
 
@@ -1733,11 +1751,11 @@ public class ALangParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:214:7: FLOAT
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:231:7: FLOAT
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    FLOAT58=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_signed_atom696); 
+                    FLOAT58=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_signed_atom706); 
                     FLOAT58_tree = (Object)adaptor.create(FLOAT58);
                     adaptor.addChild(root_0, FLOAT58_tree);
 
@@ -1747,7 +1765,7 @@ public class ALangParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:215:7: ( '-' | '+' ) a= signed_atom
+                    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:232:7: ( '-' | '+' ) a= signed_atom
                     {
                     root_0 = (Object)adaptor.nil();
 
@@ -1762,7 +1780,7 @@ public class ALangParser extends Parser {
                         throw mse;
                     }
 
-                    pushFollow(FOLLOW_signed_atom_in_signed_atom716);
+                    pushFollow(FOLLOW_signed_atom_in_signed_atom726);
                     a=signed_atom();
 
                     state._fsp--;
@@ -1799,7 +1817,7 @@ public class ALangParser extends Parser {
     };
 
     // $ANTLR start "variableDeclarationList"
-    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:220:1: variableDeclarationList : a= ID ( ',' b= ID )* ;
+    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:237:1: variableDeclarationList : a= ID ( ',' b= ID )* ;
     public final ALangParser.variableDeclarationList_return variableDeclarationList() throws RecognitionException {
         ALangParser.variableDeclarationList_return retval = new ALangParser.variableDeclarationList_return();
         retval.start = input.LT(1);
@@ -1815,16 +1833,16 @@ public class ALangParser extends Parser {
         Object char_literal60_tree=null;
 
         try {
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:221:5: (a= ID ( ',' b= ID )* )
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:221:7: a= ID ( ',' b= ID )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:238:5: (a= ID ( ',' b= ID )* )
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:238:7: a= ID ( ',' b= ID )*
             {
             root_0 = (Object)adaptor.nil();
 
-            a=(Token)match(input,ID,FOLLOW_ID_in_variableDeclarationList745); 
+            a=(Token)match(input,ID,FOLLOW_ID_in_variableDeclarationList755); 
             a_tree = (Object)adaptor.create(a);
             adaptor.addChild(root_0, a_tree);
 
-            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:221:12: ( ',' b= ID )*
+            // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:238:12: ( ',' b= ID )*
             loop16:
             do {
                 int alt16=2;
@@ -1837,13 +1855,13 @@ public class ALangParser extends Parser {
 
                 switch (alt16) {
             	case 1 :
-            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:221:13: ',' b= ID
+            	    // D:\\Programming\\PROJECTS\\Eclipse\\workspace\\ALang\\src\\alang\\ALang.g:238:13: ',' b= ID
             	    {
-            	    char_literal60=(Token)match(input,30,FOLLOW_30_in_variableDeclarationList748); 
+            	    char_literal60=(Token)match(input,30,FOLLOW_30_in_variableDeclarationList758); 
             	    char_literal60_tree = (Object)adaptor.create(char_literal60);
             	    adaptor.addChild(root_0, char_literal60_tree);
 
-            	    b=(Token)match(input,ID,FOLLOW_ID_in_variableDeclarationList752); 
+            	    b=(Token)match(input,ID,FOLLOW_ID_in_variableDeclarationList762); 
             	    b_tree = (Object)adaptor.create(b);
             	    adaptor.addChild(root_0, b_tree);
 
@@ -1888,72 +1906,72 @@ public class ALangParser extends Parser {
     public static final BitSet FOLLOW_coroutineDeclaration_in_program69 = new BitSet(new long[]{0x0000000000024000L});
     public static final BitSet FOLLOW_main_in_program72 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_program74 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_globalVariableDeclaration103 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_variableDeclarationList_in_globalVariableDeclaration105 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_globalVariableDeclaration107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_coroutineDeclarator_in_coroutineDeclaration124 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_coroutineDeclarator148 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_coroutineDeclarator151 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_coroutineDeclarator156 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_statement_in_coroutineDeclarator158 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_16_in_coroutineDeclarator161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_main196 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_main198 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_statement_in_main200 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_16_in_main203 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_op_in_statement221 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_statement223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_yield_op_in_statement231 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_statement233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_call_coroutine_in_statement241 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_statement243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_if_statement_in_statement251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_while_statement_in_statement260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_if_statement286 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_if_statement288 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_logical_expression_in_if_statement289 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_if_statement290 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_if_statement292 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_statement_in_if_statement294 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_16_in_if_statement297 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_21_in_if_statement300 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_if_statement302 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_statement_in_if_statement304 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_16_in_if_statement307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_while_statement334 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_while_statement336 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_logical_expression_in_while_statement337 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_while_statement338 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_while_statement340 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_statement_in_while_statement342 = new BitSet(new long[]{0x0000000001C50020L});
-    public static final BitSet FOLLOW_16_in_while_statement345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_call_coroutine362 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_call_coroutine364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_logical_expression390 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RELATIONALOP_in_logical_expression392 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_logical_expression394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_yield_op413 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_yield_op415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_assign_op433 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_assign_op435 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_expression_in_assign_op437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_mult_expr_in_expression474 = new BitSet(new long[]{0x000000000C000002L});
-    public static final BitSet FOLLOW_26_in_expression498 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_27_in_expression502 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_mult_expr_in_expression507 = new BitSet(new long[]{0x000000000C000002L});
-    public static final BitSet FOLLOW_atom_in_mult_expr562 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_28_in_mult_expr579 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_29_in_mult_expr583 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_atom_in_mult_expr588 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_ID_in_atom628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_atom640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_signed_atom_in_atom654 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_signed_atom684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_signed_atom696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_signed_atom708 = new BitSet(new long[]{0x000000000C0003A0L});
-    public static final BitSet FOLLOW_signed_atom_in_signed_atom716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_variableDeclarationList745 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_30_in_variableDeclarationList748 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ID_in_variableDeclarationList752 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_12_in_globalVariableDeclaration105 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_variableDeclarationList_in_globalVariableDeclaration107 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_globalVariableDeclaration109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_coroutineDeclarator_in_coroutineDeclaration126 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_coroutineDeclarator150 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_coroutineDeclarator153 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_coroutineDeclarator158 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_statement_in_coroutineDeclarator160 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_16_in_coroutineDeclarator163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_main198 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_main200 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_statement_in_main202 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_16_in_main205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_op_in_statement223 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_statement225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_yield_op_in_statement233 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_statement235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_call_coroutine_in_statement243 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_statement245 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_if_statement_in_statement253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_while_statement_in_statement262 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_if_statement288 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_if_statement290 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_logical_expression_in_if_statement291 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_if_statement292 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_if_statement294 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_statement_in_if_statement296 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_16_in_if_statement299 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_21_in_if_statement302 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_if_statement304 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_statement_in_if_statement306 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_16_in_if_statement309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_while_statement336 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_while_statement338 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_logical_expression_in_while_statement339 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_while_statement340 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_while_statement342 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_statement_in_while_statement344 = new BitSet(new long[]{0x0000000001C50020L});
+    public static final BitSet FOLLOW_16_in_while_statement347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_call_coroutine364 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_call_coroutine366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_logical_expression392 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RELATIONALOP_in_logical_expression394 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_logical_expression396 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_yield_op415 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_yield_op417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_assign_op435 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_assign_op437 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_expression_in_assign_op439 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_mult_expr_in_expression484 = new BitSet(new long[]{0x000000000C000002L});
+    public static final BitSet FOLLOW_26_in_expression508 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_27_in_expression512 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_mult_expr_in_expression517 = new BitSet(new long[]{0x000000000C000002L});
+    public static final BitSet FOLLOW_atom_in_mult_expr572 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_28_in_mult_expr589 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_29_in_mult_expr593 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_atom_in_mult_expr598 = new BitSet(new long[]{0x0000000030000002L});
+    public static final BitSet FOLLOW_ID_in_atom638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_atom650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_signed_atom_in_atom664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_signed_atom694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_signed_atom706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_signed_atom718 = new BitSet(new long[]{0x000000000C0003A0L});
+    public static final BitSet FOLLOW_signed_atom_in_signed_atom726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_variableDeclarationList755 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_30_in_variableDeclarationList758 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ID_in_variableDeclarationList762 = new BitSet(new long[]{0x0000000040000002L});
 
 }

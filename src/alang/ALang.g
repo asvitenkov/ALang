@@ -41,7 +41,7 @@ package alang;
 }
 
 program
-    :  globalVariableDeclaration? coroutineDeclaration  main EOF
+    :  globalVariableDeclaration? coroutineDeclaration  main EOF {names.printVars();}
     ;
     
 globalVariableDeclaration
@@ -146,6 +146,23 @@ yield_op
 
 assign_op
     : ID '=' expression
+      {
+          String varBlock=this.currentBlock;
+          if(names.isExistVariable(blocks,$ID.text)){
+            varBlock = names.getVariableBlock(blocks,$ID.text);
+          }
+          else{
+            names.addVariable(names.new VariableName(this.currentBlock+"."+$ID.text,"undef",$ID.line));
+            varBlock=this.currentBlock;
+          }
+          if(!names.checkAssignOperation(varBlock,$ID.text, $expression.type, $ID.line)){
+             errors.add(names.getLastError());
+          }
+          else{
+             //typeChecker.getResultType("+",names.getVariableType(varBlock,$ID.text,$expression.type));
+          }
+          
+      }
     ;
     
 expression returns[String type]
@@ -166,7 +183,7 @@ scope{
           {
                if(!typeChecker.checkMathExpr($expression::lastType, $b.type)){
                   $expression::lastType="error";
-                  errors.add("line "+$b.line+": coroutine "+$b.text+" doesn't exists");
+                  errors.add("line "+$b.line+": type mismatch");
                }
                else{
                   $expression::lastType=typeChecker.getResultType($c.text,$b.type, $expression::lastType);
@@ -194,7 +211,7 @@ scope{
           {
                if(!typeChecker.checkMathExpr($mult_expr::lastType, $b.type)){
                   $mult_expr::lastType="error";
-                  errors.add("line "+$b.line+": coroutine "+$b.text+" doesn't exists");
+                  errors.add("line "+$b.line+": type mismatch");
                }
                else{
                   $mult_expr::lastType=typeChecker.getResultType($c.text,$b.type, $mult_expr::lastType);
@@ -204,7 +221,7 @@ scope{
     ; 
 
 atom returns[String type, int line]
-    : ID {$type = names.getVariableType(this.currentBlock,$ID.text);} {$line = $ID.line;}
+    : ID {$type = names.getVariableType(names.getVariableBlock(blocks,$ID.text),$ID.text);} {$line = $ID.line;}
     | STRING {$type = "string";}   {$line = $STRING.line;}
     | signed_atom {$type = $signed_atom.type;}   {$line = $signed_atom.line;}
     ;

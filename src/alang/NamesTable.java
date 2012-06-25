@@ -3,8 +3,11 @@ package alang;
 
 
 
+
+
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -12,6 +15,7 @@ import java.util.Stack;
 
 
 public class NamesTable {
+	private ArrayList<String> types;
 	public class VariableName {
 		private String 	idtf;
 		private String	type;
@@ -58,6 +62,7 @@ public class NamesTable {
 	private HashMap<String, Coroutine> coroutinenNames = new HashMap<String, Coroutine>();
 	private HashMap<String, VariableName> variableNames = new HashMap<String, VariableName>();
 	private Stack<String> errors = new Stack<String>();
+	private TypeChecker typeChecker = new TypeChecker();
 	public String getLastError(){
 		if(!errors.isEmpty())
 			return errors.pop();
@@ -65,7 +70,7 @@ public class NamesTable {
 	}
 	
 	public void addCoroutine(Coroutine c){
-		System.out.println(c);
+		//System.out.println(c);
 		coroutinenNames.put(c.idtf, c);
 	}
 	
@@ -82,12 +87,18 @@ public class NamesTable {
 	}
 	
 	public void addVariable(VariableName n) {
-		System.out.println(n);
-		variableNames.put(n.idtf, n);
+		//System.out.println(n);
+		if(!variableNames.containsValue(n))
+			variableNames.put(n.idtf, n);
 	}
 	
 	public void printVars(){
-		System.out.println(variableNames);
+		Collection<VariableName> t= variableNames.values();
+		System.out.println("\n\n\n");
+		for(VariableName tmp: t){
+			System.out.println(tmp.toString());
+		}
+		//System.out.println();
 	}
 	
 	public VariableName getVariable(String block, String name) {
@@ -121,7 +132,73 @@ public class NamesTable {
 		}
 	}
 	
+	public boolean isExistVariable(ArrayList<String> blocks, String name){
+		boolean result = false;
+		for(String tmp: blocks){
+			if(isExistVariable(tmp, name)) {return true;}
+		}
+		return result;
+	}
+	
+	public String getVariableBlock(ArrayList<String> blocks, String name){
+		for(String tmp: blocks){
+			if(isExistVariable(tmp, name)) {return tmp;}
+		}
+		return "";
+	}
+	
+	public boolean checkAssignOperation(String block,String vName, String rType,int line){
+		//boolean result = true;
+		//if(vName.equals("a"))this.printVars();
+		//System.out.println("block:"+block+" var name:"+vName+" right type:"+rType+" line:"+line);
+		if(!isExistVariable(block, vName)) {errors.add("line "+line+": checkAssignOperation - variable doesn't exists"); return false; }
+		
+		VariableName var = getVariable(block, vName);
+		if(var==null) {errors.add("line "+line+": checkAssignOperation - variable doesn't exists"); return false; }
+		String vType = var.getType();
+		if(vType.equals("undef")){
+			if(!types.contains(rType)){
+				errors.add("line "+line+": type mismatch - right expression have undefined type");
+				return false;
+			}
+			else{
+				var.setType(rType);
+				return true;
+			}
+		}
+		else if(types.contains(vType)){
+			if(types.contains(rType)){
+				if(typeChecker.checkTypes(vType, rType)){
+					var.setType(typeChecker.getResultType("+", vType, rType));
+					return true;
+				}
+				else{
+					errors.add("line "+line+": type mismatch - right expression have type " +rType+", but need "+vType);
+					return false;
+				}
+			}
+			else{
+				errors.add("line "+line+": type mismatch - right expression have undefined type");
+				return false;
+			}
+		}
+		else{
+			errors.add("line "+line+": type mismatch - right expression have undefined type");
+			return false;
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 	}
-
+	{
+		types = new ArrayList<String>();
+		types.add("int"); types.add("string"); types.add("float");
+	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		this.printVars();
+		super.finalize();
+	}
 }
