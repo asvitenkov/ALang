@@ -1,4 +1,8 @@
 *.class
+bin/**
+.classpath
+.settings/
+.project
 
 # Package Files #
 *.jar
