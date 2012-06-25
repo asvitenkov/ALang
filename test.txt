@@ -1,0 +1,46 @@
+global:
+	a,b,c,d;
+
+
+coroutine first{
+	while(a>b){
+		yield second;
+	}
+	while(a<b){
+		yield third;
+	}
+	
+}
+
+
+coroutine second{
+	b=b+1;
+	yield first;
+}
+
+coroutine third{
+	a=a+1;
+	yield first;
+	@first;
+}
+
+main{
+	a = 15;
+	b = 10.0;
+	c = "string";
+	
+	@first;
+	e=a+b;
+	if(a>b){
+		a=2.0;
+		loc = -15;
+	}
+	else{
+		b=3;
+	}
+		a=loc+b;
+	while(a<=b){
+		a=a+1;
+	}
+	n=3+3.0*15;
+}
