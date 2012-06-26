@@ -63,6 +63,27 @@ public class NamesTable {
 	private HashMap<String, VariableName> variableNames = new HashMap<String, VariableName>();
 	private Stack<String> errors = new Stack<String>();
 	private TypeChecker typeChecker = new TypeChecker();
+	private ArrayList<String> callCoroutineStack = new ArrayList<String>();
+	private ArrayList<Integer> callCoroutineStackLines = new ArrayList<Integer>();
+	
+	public void addCallCoroutine(String name, int line){
+		callCoroutineStack.add("coroutine_"+name);
+		callCoroutineStackLines.add(line);
+	}
+	
+	public boolean checkCallCoroutine(){
+		boolean result = true;
+		int i=0;
+		for(String tmp: callCoroutineStack){
+			if(!this.isExistCoroutine(tmp)){
+				errors.add("line "+callCoroutineStackLines.get(i).toString()+": undefined yield coroutine");
+				result = false;
+			}
+			i++;
+		}
+		return result;
+	}
+	
 	public String getLastError(){
 		if(!errors.isEmpty())
 			return errors.pop();

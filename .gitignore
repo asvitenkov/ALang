@@ -3,6 +3,8 @@ bin/**
 .classpath
 .settings/
 .project
+test.txt
+
 
 # Package Files #
 *.jar

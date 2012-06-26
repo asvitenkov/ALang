@@ -41,7 +41,12 @@ package alang;
 }
 
 program
-    :  globalVariableDeclaration? coroutineDeclaration  main EOF {names.printVars();}
+    :  globalVariableDeclaration? coroutineDeclaration  main EOF 
+      {
+        if(!names.checkCallCoroutine()){
+          names.getAllErrors(errors);
+        }
+      }
     ;
     
 globalVariableDeclaration
@@ -135,13 +140,45 @@ call_coroutine
     ;
 
 logical_expression
-    :  ID RELATIONALOP ID
+    :  a=ID RELATIONALOP b=ID
+      {
+        if(!names.isExistVariable(blocks,$a.text)){
+          errors.add("line "+$a.line+": variable "+$a.text+" have undefined type");
+        }
+        else{
+          String type = names.getVariableType(names.getVariableBlock(blocks,$a.text),$a.text);
+          if(type.equals("undef")){
+            errors.add("line "+$a.line+": variable "+$a.text+" have undefined type");
+          }
+        }
+        
+        if(!names.isExistVariable(blocks,$a.text)){
+          errors.add("line "+$b.line+": variable "+$b.text+" have undefined type");
+        }
+        else{
+          String type = names.getVariableType(names.getVariableBlock(blocks,$b.text),$b.text);
+          if(type.equals("undef")){
+            errors.add("line "+$b.line+": variable "+$b.text+" have undefined type");
+          }
+        }
+        
+      }
     ;
 
 
 
 yield_op
     : 'yield' ID 
+      {
+      
+        boolean res = false;
+        for(String tmp: blocks){
+          if(tmp.indexOf("coroutine_")!=-1) {res=true; names.addCallCoroutine($ID.text,$ID.line);}
+        }
+        if(!res){
+           errors.add("line "+$ID.line+": yield statement may be only into coroutine's body");
+        }
+      }
     ;
 
 assign_op
@@ -180,7 +217,7 @@ scope{
               $expression::lastType = $a.type;
           } 
     ((c='+'|c='-') b=mult_expr
-          {
+          { 
                if(!typeChecker.checkMathExpr($expression::lastType, $b.type)){
                   $expression::lastType="error";
                   errors.add("line "+$b.line+": type mismatch");

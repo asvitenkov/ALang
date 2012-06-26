@@ -9,7 +9,7 @@ public class TypeChecker {
 	}
 	public boolean checkTypes(String lType, String rType){
 		if(lType.equals("error") || rType.equals("error")) return true;
-		if(!types.contains(lType)||!types.contains(lType)){
+		if(!types.contains(lType)||!types.contains(rType)){
 			return false;
 		}
 		boolean result=true;
@@ -32,7 +32,7 @@ public class TypeChecker {
 	}
 	
 	public boolean checkMathExpr(String lType, String rType){
-		if(!types.contains(lType)||!types.contains(lType)){
+		if(!types.contains(lType)||!types.contains(rType)){
 			return false;
 		}
 		if(lType.equals("error") || rType.equals("error")) return true;
